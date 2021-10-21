@@ -1,8 +1,8 @@
 import java.awt.*;
 
 public class Ellipse {
-    private int px;
-    private int py;
+    protected int px;
+    protected int py;
     private Color color;
 
     public Ellipse (int px, int py, Color color){

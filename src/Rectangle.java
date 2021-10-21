@@ -2,9 +2,9 @@ import java.awt.*;
 
 public class Rectangle {
     // px définit la largeur du rectangle
-    private int px;
+    protected int px;
     // py définit la hauteur du rectangle
-    private int py;
+    protected int py;
     private Color color;
 
     public Rectangle(int px, int py, Color color){
