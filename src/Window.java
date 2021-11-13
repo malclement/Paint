@@ -135,7 +135,7 @@ public abstract class Window extends JFrame implements ActionListener {
         toolPanel.add(Cercle);
         Cercle.addActionListener(this);
         // Carré
-        JButton Carre = new JButton("Carré");
+        JButton Carre = new JButton("Carre");
         toolPanel.add(Carre);
         Carre.addActionListener(this);
 
@@ -164,37 +164,48 @@ public abstract class Window extends JFrame implements ActionListener {
             // Couleurs
             case "Green" :
                 System.out.println("Green");
+                myDrawring.setCurrentColor(Color.GREEN);
                 break;
             case "Black" :
                 System.out.println("Black");
+                myDrawring.setCurrentColor(Color.BLACK);
                 break;
             case "Pink" :
                 System.out.println("Pink");
+                myDrawring.setCurrentColor(Color.PINK);
                 break;
             case "Red" :
                 System.out.println("Red");
+                myDrawring.setCurrentColor(Color.RED);
                 break;
             case "Yellow" :
                 System.out.println("Yellow");
+                myDrawring.setCurrentColor(Color.YELLOW);
                 break;
             case "Magenta" :
                 System.out.println("Magenta");
+                myDrawring.setCurrentColor(Color.MAGENTA);
                 break;
             case "Blue" :
                 System.out.println("Blue");
+                myDrawring.setCurrentColor(Color.BLUE);
                 break;
             // Type de figure
-            case "Carré" :
-                System.out.println("Carré");
+            case "Carre" :
+                System.out.println("Carre");
+                myDrawring.setCurrentFigure("Carre");
                 break;
             case "Ellipse" :
                 System.out.println("Ellipse");
+                myDrawring.setCurrentFigure("Ellipse");
                 break;
             case "Cercle" :
                 System.out.println("Cercle");
+                myDrawring.setCurrentFigure("Cercle");
                 break;
             case "Rectangle" :
                 System.out.println("Rectangle");
+                myDrawring.setCurrentFigure("Rectangle");
                 break;
 
         }

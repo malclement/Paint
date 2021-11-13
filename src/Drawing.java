@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseMotionListener, MouseListener {
@@ -53,12 +55,22 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
             case "Ellipse" :
                 list.add(new Ellipse(x, y, currentColor));
                 break;
+            case "Cercle" :
+                list.add(new Circle(x, y, currentColor));
+                break;
+            case "Rectangle" :
+                list.add(new Rectangle(x, y, currentColor));
+                break;
+            case "Square" :
+                list.add(new Square(x, y, currentColor));
+                break;
         }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        x = e.getX();
+        y = e.getY();
     }
 
     @Override
@@ -79,5 +91,21 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     @Override
     public void mouseMoved(MouseEvent e) {
 
+    }
+
+    public void save(){
+        try{
+            FileOutputStream fos = new FileOutputStream("saveDrawing");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeInt(list.size());
+            for(Figure f : list){
+                oos.writeObject(f);
+            }
+            oos.close();
+        }
+        catch (Exception e){
+            System.out.println("Erreur Sauvegarde");
+        }
     }
 }
