@@ -21,4 +21,5 @@ public class Square extends Rectangle{
         this.py=largeurBox;
     }
 
+
 }

@@ -7,17 +7,17 @@ public class Circle extends Ellipse{
     }
 
     public void setPetitAxe(int l){
-        px=l;
-        py=l;
+        demiAxeX=l;
+        demiAxeY=l;
     }
     public void setGrandAxe(int l){
-        px=l;
-        py=l;
+        demiAxeX=l;
+        demiAxeY=l;
     }
 
     @Override
     public void setBoundingBox(int setPetitAxe, int setGrandAxe){
-        this.px=setGrandAxe;
-        this.py=setGrandAxe;
+        this.demiAxeX=setGrandAxe;
+        this.demiAxeY=setGrandAxe;
     }
 }

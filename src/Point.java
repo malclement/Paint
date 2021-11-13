@@ -1,42 +1,39 @@
-public class Point {
-    private int x;
-    private int y;
+import java.io.Serializable;
 
-    public Point(){
-        this.x = 0;
-        this.y = 0;
+public class Point implements Serializable {
+
+    private int myX;
+    private int myY;
+
+    public int getmyX() {
+        return myX;
     }
 
-    public Point(int a, int b){
-        this.x = a;
-        this.y = b;
+    public int getmyY() {
+        return myY;
     }
 
-    public int getX() {
-        return x;
+    public void setmyX(int x) {
+        myX = x;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setmyY(int y) {
+        myY = y;
     }
 
-    public int getY() {
-        return y;
+    public Point() {
+        int myX = 0;
+        int myY = 0;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public Point(int x, int y) {
+        myX = x;
+        myY = y;
     }
-
-
 
     @Override
     public String toString(){
-        return ("("+this.x+","+this.y+")");
+        return ("("+getmyX()+","+getmyY()+")");
     }
-
-
-
-
 
 }

@@ -1,20 +1,23 @@
 import java.awt.*;
 
-public class Ellipse {
-    protected int px;
-    protected int py;
+public class Ellipse extends Figure{
+    protected int demiAxeX=0;
+    protected int demiAxeY=0;
     private Color color;
 
     public Ellipse (int px, int py, Color color){
-        this.color = color;
-        this.px = px;
-        this.py = py;
+        super(new Point(px,py), color);
     }
 
     public void Draw(){}
 
     public void setBoundingBox(int hauteurBox, int largeurBox){
-        this.px = largeurBox;
-        this.py = hauteurBox;
+        this.demiAxeX = largeurBox;
+        this.demiAxeY = hauteurBox;
+    }
+
+    @Override
+    public void draw(Graphics g) {
+
     }
 }

@@ -1,9 +1,11 @@
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class Figure {
+public abstract class Figure implements Serializable {
 
-    private Point origine;
-    private Color color;
+    protected Point origine;
+    public Color color;
+
 
     public Figure(){
         this.origine = new Point();
