@@ -155,11 +155,16 @@ public abstract class Window extends JFrame implements ActionListener {
             // Info
             case "Info" :
                 JOptionPane info = new JOptionPane();
-                info.showInternalMessageDialog(info,"Author : MALIGE Clément","information",JOptionPane.INFORMATION_MESSAGE);
+                info.showInternalMessageDialog(info,
+                        "Author : MALIGE Clément",
+                        "information",
+                        JOptionPane.INFORMATION_MESSAGE);
                 break;
-
             case "Quit" :
                 System.exit(0);
+                break;
+            case "Save" :
+                this.myDrawring.save();
                 break;
             // Couleurs
             case "Green" :

@@ -69,8 +69,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        x = e.getX();
-        y = e.getY();
+
     }
 
     @Override
@@ -85,12 +84,21 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        int X = e.getX()-this.x;
+        int Y = e.getY()-this.y;
+        list.get(list.size()-1).setBoundingBox(X,Y);
+        repaint();
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
 
+    }
+
+    public void paintComponent(Graphics graphics){
+        super.paintComponent(graphics);
+        this.setBackground(Color.WHITE);
+        for (Figure figure: list){figure.draw(graphics);}
     }
 
     public void save(){
