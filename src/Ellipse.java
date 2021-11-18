@@ -6,6 +6,8 @@ import java.awt.*;
  * A beginning point (x,y)
  * A color
  * Two int to represent axis size
+ *
+ * @author clement
  */
 
 public class Ellipse extends Figure{

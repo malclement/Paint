@@ -6,6 +6,8 @@ import java.awt.*;
  * A beginning point (x,y)
  * A color
  * A Width and a Height
+ *
+ * @author clement
  */
 
 public class Rectangle extends Figure{

@@ -9,6 +9,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+/**
+ * Drawing Class manage the drawing of the different shapes
+ *
+ * @author clement
+ */
+
 public class Drawing extends JPanel implements MouseMotionListener, MouseListener {
 
     public Color currentColor;

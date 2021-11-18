@@ -1,5 +1,13 @@
 import java.awt.*;
 
+/**
+ * Circle Class extends Ellipse Class
+ * This class force the Ellipse object to have
+ * the same small axis and long axis
+ *
+ * @author clement
+ */
+
 public class Circle extends Ellipse{
 
     // Constructeur

@@ -3,6 +3,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Window is the main Class
+ * Window Class manage the user interface
+ * Window Class use JFrame to create buttons and toolbars
+ * Window Class use ActionListener to be able to interact interface elements
+ *
+ * @author clement
+ */
+
 public abstract class Window extends JFrame implements ActionListener {
 
     // Variables

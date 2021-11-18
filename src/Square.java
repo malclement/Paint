@@ -1,5 +1,13 @@
 import java.awt.*;
 
+/**
+ * Square Class extends Rectangle Class
+ * This class force the rectangle object to have
+ * the same width and height
+ *
+ * @author clement
+ */
+
 public class Square extends Rectangle{
 
     // Constructor

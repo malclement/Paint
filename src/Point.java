@@ -2,6 +2,8 @@ import java.io.Serializable;
 
 /**
  * Point Class define a point by is (x,y) coordinates
+ *
+ * @author clement
  */
 
 public class Point implements Serializable {

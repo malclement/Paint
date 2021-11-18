@@ -6,6 +6,8 @@ import java.io.Serializable;
  * A figure gets two attributes :
  * A Point (x,y)
  * A Color
+ *
+ * @author clement
  */
 
 public abstract class Figure implements Serializable {
