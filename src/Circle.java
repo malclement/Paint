@@ -2,15 +2,17 @@ import java.awt.*;
 
 public class Circle extends Ellipse{
 
+    // Constructeur
     public Circle(int px, int py, Color color) {
         super(px, py, color);
     }
-
-    public void setPetitAxe(int l){
+    @Override
+    public void setDemiAxeX(int l){
         demiAxeX=l;
         demiAxeY=l;
     }
-    public void setGrandAxe(int l){
+    @Override
+    public void setDemiAxeY(int l){
         demiAxeX=l;
         demiAxeY=l;
     }

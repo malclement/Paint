@@ -9,16 +9,13 @@ import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseMotionListener, MouseListener {
 
-
     public Color currentColor;
     public String currentFigure;
     public ArrayList<Figure> list = new ArrayList<>();
     public int x;
     public int y;
-    private Point firstMouseEvent;
-    private Point secondMouseEvent;
 
-
+    // Constructor
     public Drawing(){
         super();
         this.setBackground(Color.WHITE);
@@ -31,16 +28,11 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         this.addMouseMotionListener(this);
     }
 
-    public Color getCurrentColor() {
-        return currentColor;
-    }
+    // Getter and Setter
     public void setCurrentColor(Color currentColor) {
         this.currentColor = currentColor;
     }
-    public void setCurrentFigure(String currentFigure) {
-        this.currentFigure = currentFigure;
-    }
-
+    public void setCurrentFigure(String currentFigure) {this.currentFigure = currentFigure;}
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -49,20 +41,21 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mousePressed(MouseEvent e) {
+        System.out.println("mousePressed");// Check if mousePressed is detected
         x = e.getX();
         y = e.getY();
-        switch (currentFigure){
+        switch (this.currentFigure){
             case "Ellipse" :
-                list.add(new Ellipse(x, y, currentColor));
+                list.add(new Ellipse(x, y, this.currentColor));
                 break;
             case "Cercle" :
-                list.add(new Circle(x, y, currentColor));
+                list.add(new Circle(x, y, this.currentColor));
                 break;
             case "Rectangle" :
-                list.add(new Rectangle(x, y, currentColor));
+                list.add(new Rectangle(x, y, this.currentColor));
                 break;
             case "Square" :
-                list.add(new Square(x, y, currentColor));
+                list.add(new Square(x, y,this.currentColor));
                 break;
         }
     }
@@ -84,6 +77,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        System.out.println("mouseDragged");// Check if mouseDragged is detected
         int X = e.getX()-this.x;
         int Y = e.getY()-this.y;
         list.get(list.size()-1).setBoundingBox(X,Y);

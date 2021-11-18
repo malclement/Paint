@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 
 public abstract class Window extends JFrame implements ActionListener {
 
-    Drawing myDrawring = new Drawing();
+    // Variables
+    static protected Drawing myDrawring = new Drawing();
 
+    // Constructor
     public Window(String Title,int x,int y)
     {
         super(Title);
@@ -62,7 +64,8 @@ public abstract class Window extends JFrame implements ActionListener {
         Black.setBackground(Color.BLACK);
         Black.setForeground(Color.WHITE);// Pour que l'on puisse lire la couleur
         colorPanel.add(Black);
-        /* Ces deux lignes permettent un affichage correct
+        /*
+         * Ces deux lignes permettent un affichage correct
          * de la couleur sur macOS
          */
         Black.setOpaque(true);
@@ -143,8 +146,10 @@ public abstract class Window extends JFrame implements ActionListener {
         contentPanel.add(southPanel, "South");
         southPanel.add(colorPanel);
         southPanel.add(toolPanel);
-        setVisible(true);
 
+        /*          Ajout de ma feuille de dessin                */
+        contentPanel.add(myDrawring,"Center");
+        setVisible(true);
     }
 
     @Override
@@ -214,5 +219,10 @@ public abstract class Window extends JFrame implements ActionListener {
                 break;
 
         }
+    }
+    public static void main (String[] args){
+        Window win = new Window("Paint", 800, 600) {
+
+        };
     }
 }

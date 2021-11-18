@@ -3,18 +3,11 @@ import java.io.Serializable;
 
 public abstract class Figure implements Serializable {
 
+    // Variables
     protected Point origine;
     public Color color;
 
-
-    public Figure(){
-        this.origine = new Point();
-    }
-
-    public Figure(Point p){
-        this.origine = p;
-    }
-
+    // Constructor
     public Figure(Point p, Color c){
         this.origine = p;
         this.color = c;
@@ -25,7 +18,7 @@ public abstract class Figure implements Serializable {
         return "la couleur est : "+color+" et l'origine est : "+origine;
     }
 
-    /** définit la hauteur et largeur de **/
+    // Set Height and Width
     public abstract void setBoundingBox (int heightBB, int widthBB);
     public abstract void draw (Graphics g);
 
