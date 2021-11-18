@@ -17,7 +17,7 @@ public abstract class Window extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container contentPanel = this.getContentPane() ;
 
-        /*          Création de la barre menu              */
+        // Création de la barre menu
         JMenuBar m = new JMenuBar();
         // File
         JMenu menu1 = new JMenu("File");
@@ -49,14 +49,13 @@ public abstract class Window extends JFrame implements ActionListener {
                 "Pop-Up",JOptionPane.INFORMATION_MESSAGE);
         menu2.add(Info);
         m.add(menu2);
-
         contentPanel.add(m, "North");
 
-        /*          Création du Panel inférieur             */
+        // Création du Panel inférieur
         JPanel southPanel = new JPanel();
         southPanel.setLayout (new GridLayout(1,2));
 
-        /*          Création du Panel couleurs              */
+        // Création du Panel couleurs
         JPanel colorPanel = new JPanel();
         colorPanel.setLayout(new GridLayout(2,4));
         // Noir
@@ -65,8 +64,8 @@ public abstract class Window extends JFrame implements ActionListener {
         Black.setForeground(Color.WHITE);// Pour que l'on puisse lire la couleur
         colorPanel.add(Black);
         /*
-         * Ces deux lignes permettent un affichage correct
-         * de la couleur sur macOS
+         * Les deux lignes qui suivent permettent un
+         * affichage correct de la couleur sur macOS
          */
         Black.setOpaque(true);
         Black.setBorderPainted(false);
@@ -122,7 +121,7 @@ public abstract class Window extends JFrame implements ActionListener {
         Orange.addActionListener(this);
 
 
-        /*          Création du Panneau outils         */
+        // Création du Panneau outils
         JPanel toolPanel = new JPanel();
         toolPanel.setLayout(new GridLayout(2,2));
         // Ellipse
@@ -142,12 +141,12 @@ public abstract class Window extends JFrame implements ActionListener {
         toolPanel.add(Carre);
         Carre.addActionListener(this);
 
-        /*    Ajout de toolPanel et colorPanel à southPanel     */
+        // Ajout de toolPanel et colorPanel à southPanel
         contentPanel.add(southPanel, "South");
         southPanel.add(colorPanel);
         southPanel.add(toolPanel);
 
-        /*          Ajout de ma feuille de dessin                */
+        // Ajout de ma feuille de dessin
         contentPanel.add(myDrawring,"Center");
         setVisible(true);
     }
@@ -170,6 +169,12 @@ public abstract class Window extends JFrame implements ActionListener {
                 break;
             case "Save" :
                 myDrawring.save();
+                break;
+            case "New" :
+                myDrawring.nouveau();
+                break;
+            case "Open" :
+                myDrawring.open();
                 break;
             // Couleurs
             case "Green" :
@@ -199,6 +204,10 @@ public abstract class Window extends JFrame implements ActionListener {
             case "Blue" :
                 System.out.println("Blue");
                 myDrawring.setCurrentColor(Color.BLUE);
+                break;
+            case "Orange" :
+                System.out.println("Orange");
+                myDrawring.setCurrentColor(Color.ORANGE);
                 break;
             // Type de figure
             case "Carre" :

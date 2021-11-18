@@ -1,5 +1,9 @@
 import java.io.Serializable;
 
+/**
+ * Point Class define a point by is (x,y) coordinates
+ */
+
 public class Point implements Serializable {
 
     // Private Variables

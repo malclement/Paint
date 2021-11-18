@@ -1,6 +1,13 @@
 import java.awt.*;
 import java.io.Serializable;
 
+/**
+ * Figure Class implements Serializable
+ * A figure gets two attributes :
+ * A Point (x,y)
+ * A Color
+ */
+
 public abstract class Figure implements Serializable {
 
     // Variables

@@ -3,7 +3,9 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
@@ -29,9 +31,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     }
 
     // Getter and Setter
-    public void setCurrentColor(Color currentColor) {
-        this.currentColor = currentColor;
-    }
+    public void setCurrentColor(Color currentColor) {this.currentColor = currentColor;}
     public void setCurrentFigure(String currentFigure) {this.currentFigure = currentFigure;}
 
     @Override
@@ -41,7 +41,9 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("mousePressed");// Check if mousePressed is detected
+        /* Check if mousePressed is detected :
+         * System.out.println("mousePressed");
+         */
         x = e.getX();
         y = e.getY();
         switch (this.currentFigure){
@@ -54,7 +56,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
             case "Rectangle" :
                 list.add(new Rectangle(x, y, this.currentColor));
                 break;
-            case "Carrz" :
+            case "Carre" :
                 list.add(new Square(x, y,this.currentColor));
                 break;
         }
@@ -77,7 +79,9 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        System.out.println("mouseDragged");// Check if mouseDragged is detected
+        /* Check if mouseDragged is detected :
+         * System.out.println("mouseDragged");
+         */
         int X = e.getX()-this.x;
         int Y = e.getY()-this.y;
         list.get(list.size()-1).setBoundingBox(X,Y);
@@ -89,10 +93,11 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     }
 
-    public void paintComponent(Graphics graphics){
+    protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
         this.setBackground(Color.WHITE);
         for (Figure figure: list){figure.draw(graphics);}
+
     }
 
     public void save(){
@@ -109,5 +114,24 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         catch (Exception e){
             System.out.println("Erreur Sauvegarde");
         }
+    }
+
+    public void open(){
+        try {
+            FileInputStream fis = new FileInputStream("saveDrawing");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            for(int i = 0; i < ois.readInt(); ++i) {
+                list.add((Figure)ois.readObject());
+            }
+            ois.close();
+            repaint();
+        } catch (Exception e) {
+            System.out.println("Erreur Chargement");
+        }
+    }
+
+    public void nouveau(){
+        this.list = new ArrayList<>();
+        this.repaint();
     }
 }
