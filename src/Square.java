@@ -7,10 +7,12 @@ public class Square extends Rectangle{
         super(px, py, color);
     }
 
+    @Override
     public void setPy(int l){
         px=l;
         py=l;
     }
+    @Override
     public void setPx(int l){
         px=l;
         py=l;

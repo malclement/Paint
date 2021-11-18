@@ -54,7 +54,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
             case "Rectangle" :
                 list.add(new Rectangle(x, y, this.currentColor));
                 break;
-            case "Square" :
+            case "Carrz" :
                 list.add(new Square(x, y,this.currentColor));
                 break;
         }

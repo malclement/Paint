@@ -169,7 +169,7 @@ public abstract class Window extends JFrame implements ActionListener {
                 System.exit(0);
                 break;
             case "Save" :
-                this.myDrawring.save();
+                myDrawring.save();
                 break;
             // Couleurs
             case "Green" :
